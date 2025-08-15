@@ -53,14 +53,14 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
-  background-color: var(--surface-color);
-  border-right: 2px solid var(--border-color);
-  width: var(--sidebar-width);
-  position: fixed;
   height: 100%;
   z-index: 20;
   transition: transform 0.3s ease-in-out;
   transform: translateX(0); /* visible by default */
+  background-color: var(--surface-color);
+  border-right: 2px solid var(--border-color);
+  width: var(--sidebar-width);
+  position: fixed;
 }
 
 /* Hidden sidebar: slides off screen to the left */
@@ -101,6 +101,8 @@ body {
 .board-link {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
   gap: 12px;
   text-decoration: none;
   color: var(--text-color-secondary);
@@ -109,8 +111,6 @@ body {
   outline: none;
   padding: 15px 24px;
   border-radius: 0 100px 100px 0; /* rounded right side */
-  cursor: pointer;
-  transition: transform 0.3s ease-in-out;
 }
 
 /* Hover state for inactive board links */
@@ -212,6 +212,8 @@ input:checked + .slider:before {
 /* ================
    Main Layout & Header
 ================ */
+
+/* Main content takes remaining space and shifts right to accommodate sidebar */
 .main-content {
   flex-grow: 1;
   display: flex;
@@ -220,10 +222,12 @@ input:checked + .slider:before {
   transition: transform 0.3s ease-in-out;
 }
 
+/* When sidebar is hidden, main content shifts to fill full width */
 .main-content.sidebar-hidden {
   margin-left: 0;
 }
 
+/* Header bar styles */
 .header {
   display: flex;
   align-items: center;
@@ -235,12 +239,14 @@ input:checked + .slider:before {
   flex-shrink: 0;
 }
 
+/* Left section of header (logo & title) */
 .header-left {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
+/* Hidden by default, shown on mobile only */
 .mobile-logo-btn {
   display: none;
   background: none;
@@ -249,11 +255,13 @@ input:checked + .slider:before {
   padding: 0;
 }
 
+/* Page/board title text */
 .board-title {
   font-size: 1.5rem;
   color: var(--text-color-primary);
 }
 
+/* "Add Task" button styling */
 button.add-task-btn {
   background-color: var(--button-primary-bg);
   color: white;
@@ -269,17 +277,58 @@ button.add-task-btn {
   gap: 4px;
 }
 
+/* Plus icon inside the "Add Task" button */
 .plus-icon {
   font-size: 1.5rem;
   line-height: 1;
 }
 
+/* Hover effect for task button */
 button.add-task-btn:hover {
   background-color: var(--button-primary-bg-hover);
+}
+
+/* ================
+   Delete Confirmation Modal Styling
+================ */
+.delete-modal {
+  max-width: 400px;
+}
+
+.delete-modal h2 {
+  color: var(--delete-button-bg);
+  margin-bottom: 16px;
+}
+
+.delete-modal p {
+  color: var(--text-color-secondary);
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+.delete-confirm-btn {
+  background-color: var(--delete-button-bg);
+  color: white;
+}
+
+.delete-confirm-btn:hover {
+  background-color: var(--delete-button-bg-hover);
+}
+
+.action-buttons-div .cancel-btn {
+  background-color: var(--background-color);
+  color: var(--text-color-secondary);
+}
+
+.action-buttons-div .cancel-btn:hover {
+  background-color: var(--border-color);
+  color: var(--text-color-primary);
 }
 /* ================
    Board & Columns
 ================ */
+
+/* Board container: padding and scrollable on x-axis */
 .kanban-board-container {
   padding: 24px;
   overflow-x: auto;
@@ -287,12 +336,14 @@ button.add-task-btn:hover {
   display: flex;
 }
 
+/* The Kanban board: horizontally laid out columns */
 .kanban-board {
   display: flex;
   gap: 24px;
   height: 100%;
 }
 
+/* Each column: fixed width, vertically stacked */
 .column-div {
   width: 280px;
   flex-shrink: 0;
@@ -301,22 +352,21 @@ button.add-task-btn:hover {
   gap: 24px;
 }
 
+/* Column header: dot + title alignment */
 .column-header {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Colored status dot (To Do, Doing, Done) */
 .column-dot {
   width: 15px;
   height: 15px;
   border-radius: 50%;
 }
 
-.todo-dot {
-  background-color: var(--status-dot-todo);
-}
-
+/* Individual status dot colors */
 .doing-dot {
   background-color: var(--status-dot-doing);
 }
@@ -325,6 +375,11 @@ button.add-task-btn:hover {
   background-color: var(--status-dot-done);
 }
 
+.todo-dot {
+  background-color: var(--status-dot-todo);
+}
+
+/* Column title styling */
 .column-title {
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -367,61 +422,6 @@ button.add-task-btn:hover {
   font-size: 0.9375rem;
   color: var(--text-color-primary);
   transition: color 0.2s;
-}
-
-/* .priority-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-
-.priority-high {
-  background-color: var(--priority-high-bg);
-}
-
-.priority-medium {
-  background-color: var(--priority-medium-bg);
-}
-
-.priority-low {
-  background-color: var(--priority-low-bg);
-} */
-
-/* ================
-   Delete Confirmation Modal Styling
-================ */
-.delete-modal {
-  max-width: 400px;
-}
-
-.delete-modal h2 {
-  color: var(--delete-button-bg);
-  margin-bottom: 16px;
-}
-
-.delete-modal p {
-  color: var(--text-color-secondary);
-  margin-bottom: 24px;
-  font-size: 0.9rem;
-}
-
-.delete-confirm-btn {
-  background-color: var(--delete-button-bg);
-  color: white;
-}
-
-.delete-confirm-btn:hover {
-  background-color: var(--delete-button-bg-hover);
-}
-
-.action-buttons-div .cancel-btn {
-  background-color: var(--background-color);
-  color: var(--text-color-secondary);
-}
-
-.action-buttons-div .cancel-btn:hover {
-  background-color: var(--border-color);
-  color: var(--text-color-primary);
 }
 
 /* ================
@@ -694,6 +694,7 @@ button.add-task-btn:hover {
   left: 0;
   width: 56px;
   height: 48px;
+  z-index: 15;
   background-color: var(--button-primary-bg);
   border-radius: 0 100px 100px 0;
   border: none;
@@ -701,7 +702,6 @@ button.add-task-btn:hover {
   padding: 18px;
   align-items: center;
   justify-content: center;
-  z-index: 15;
   transition: transform 0.3s ease-in-out;
 }
 
@@ -716,26 +716,29 @@ button.add-task-btn:hover {
 .hidden {
   display: none !important;
 }
+
 /* ========================
-   Responsive Styles
-======================== */
+   Responsive Styles (Mobile)
+   ======================== */
 @media (max-width: 768px) {
-  /* Hides sidebar on mobile by default using transform */
+  /* Hides the sidebar by default on mobile using transform */
   .sidebar {
     transform: translateX(-100%);
+    transition: none;
+  }
+
+  /* When sidebar has 'show' class, it slides back in */
+  .sidebar.show {
+    transform: translateX(0);
     transition: transform 0.3s ease-in-out;
   }
 
-  /* When the 'show' class is toggled, it will slide in */
-  .sidebar.show {
-    transform: translateX(0);
-  }
-
-  /* This rule ensures the main content always takes up full width on mobile. */
+  /* Ensures full width usage for main content on mobile */
   .main-content {
     margin-left: 0;
   }
 
+  /* Header adjustments for mobile layout */
   .header {
     height: 64px;
     padding: 0 16px;
@@ -743,15 +746,18 @@ button.add-task-btn:hover {
     z-index: 60;
   }
 
+  /* Shows the mobile menu trigger (icon button) */
   .header .mobile-logo-btn {
     display: flex;
     padding: 0 8px;
   }
 
+  /* Hides the board title on small screens */
   .header .board-title {
     display: none;
   }
 
+  /* Circular floating "Add Task" button styling for mobile */
   .add-task-btn {
     padding: 0;
     width: 48px;
@@ -762,10 +768,12 @@ button.add-task-btn:hover {
     justify-content: center;
   }
 
+  /* Hides the text label inside the Add Task button */
   .add-task-btn .btn-text {
     display: none;
   }
 
+  /* Keeps the "+" icon visible and centered */
   .add-task-btn .plus-icon {
     display: flex;
     align-items: center;
@@ -774,12 +782,13 @@ button.add-task-btn:hover {
     font-weight: 700;
   }
 
+  /* Padding for the board container on mobile */
   .kanban-board-container {
     overflow-x: hidden;
     padding: 24px 16px;
   }
 
-  /* ** Stacks columns vertically on mobile. */
+  /* Stacks the Kanban columns vertically */
   .kanban-board {
     flex-direction: column;
     height: auto;
@@ -792,10 +801,12 @@ button.add-task-btn:hover {
     flex-shrink: 0;
   }
 
+  /* Hides logo on mobile for space optimization */
   .logo.main-logo {
     display: none;
   }
 
+  /* Floating sidebar toggle button when sidebar is hidden */
   .show-sidebar-btn {
     display: none;
     position: fixed;
@@ -814,11 +825,15 @@ button.add-task-btn:hover {
     transition: transform 0.3s ease-in-out;
   }
 
+  /* Only show toggle button when sidebar is hidden */
   .sidebar.hidden + .show-sidebar-btn {
     display: flex;
   }
 }
 
+/* ========================
+   Dark Theme Overrides
+   ======================== */
 [data-theme="dark"] .theme-toggle-container,
 [data-theme="dark"] .hide-sidebar-btn {
   background-color: #635fc7;
@@ -828,6 +843,7 @@ button.add-task-btn:hover {
   background-color: #20212c;
 }
 
+/* Logo alignment for mobile menu */
 .mobile-menu-logo {
   margin-right: 12px;
 }
