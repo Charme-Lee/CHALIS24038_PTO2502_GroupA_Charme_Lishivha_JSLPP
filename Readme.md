@@ -70,3 +70,21 @@ Consistent Naming Conventions: Descriptive and meaningful names are used through
 Comprehensive JSDoc Comments: All key functions are documented using JSDoc, providing clear descriptions, parameters, and return types for better developer understanding and onboarding.
 
 Modular JavaScript Architecture: Logic is organized into well-defined, single-purpose functions like renderTasks, openTaskModal, addNewTask, updateTaskState, and deleteTask, promoting clarity and reusability.
+
+## ⚙️ Set up instructions
+
+💡*For use on your local machine IDE*
+
+1. **Clone the Repository**
+
+```bash
+git clone
+https://github.com/Charme-Lee/CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSLPP.git
+```
+
+2. **Open the Project Folder**
+
+```bash
+cd
+CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSLPP
+```
