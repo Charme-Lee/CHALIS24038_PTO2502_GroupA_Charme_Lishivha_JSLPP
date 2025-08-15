@@ -87,7 +87,7 @@ body {
 
 /* Navigation section for board links */
 .boards-nav {
-  padding-right: 24px;
+  padding-right: 22px;
 }
 
 /* Heading above board links */
@@ -128,12 +128,18 @@ body {
 
 /* Sidebar bottom section: theme toggle + hide button */
 .sidebar-footer {
-  padding: 16px 24px 48px 24px;
+  /* padding: 16px 24px 48px 10px; */
+  padding-bottom: 48px;
+  padding-top: 16px;
+  padding-right: 24px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
+.sidebar-footer .theme-toggle-container {
+  margin-left: 25px;
+}
 /* Dark/light mode toggle container */
 .theme-toggle-container {
   display: flex;
@@ -199,7 +205,7 @@ input:checked + .slider:before {
   font-weight: 700;
   color: var(--text-color-primary);
   background-color: var(--background-color);
-  border-radius: 24px;
+  border-radius: 0 100px 100px 0;
   border: none;
   cursor: pointer;
   padding: 15px 24px;
@@ -663,7 +669,7 @@ button.add-task-btn:hover {
 }
 
 .mobile-menu-modal .board-link {
-  padding-right: 24px;
+  padding-right: 22px;
 }
 
 .mobile-menu-modal .theme-toggle-container {
