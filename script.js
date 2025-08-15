@@ -25,3 +25,15 @@ const showSidebarBtn = document.getElementById("show-sidebar-btn");
 // Mobile menu controls
 const mobileMenuModal = document.getElementById("mobile-menu-modal");
 const mobileMenuTrigger = document.getElementById("mobile-menu-trigger");
+
+/**
+ * Determines and applies the initial theme when the app loads.
+ * Priority: user-saved preference in localStorage → system's preferred color scheme → light mode.
+ */
+function loadInitialTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const systemPreference = window.matchMedia(
+    "(prefers-color-scheme: dark)"
+  ).matches;
+  applyTheme(savedTheme || (systemPreference ? "dark" : "light"));
+}
