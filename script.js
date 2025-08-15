@@ -127,3 +127,20 @@ function setupGlobalEventListeners() {
     }
   });
 }
+
+/**
+ * Initializes the Kanban application:
+ * - Sets up event listeners
+ * - Configures modal behavior
+ * - Loads and applies theme
+ * - Fetches and displays initial task data
+ */
+async function init() {
+  setupGlobalEventListeners();
+  setupModalEventListeners();
+  loadInitialTheme();
+  await initializeTasks();
+}
+
+// Launch the application once the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", init);
