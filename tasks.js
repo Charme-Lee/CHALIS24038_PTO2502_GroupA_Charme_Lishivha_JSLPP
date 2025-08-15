@@ -52,3 +52,23 @@ async function fetchTasksFromAPI() {
     return [];
   }
 }
+
+/**
+ * Creates a DOM element representing a single task card.
+ * @param {object} task - The task object containing title, priority, and ID.
+ * @returns {HTMLElement} The generated task card element.
+ */
+function createTaskElement(task) {
+  const taskCard = document.createElement("div");
+  taskCard.className = "task-card";
+  taskCard.dataset.taskId = task.id;
+  taskCard.innerHTML = `
+    <div class="task-header-container">
+      <h3 class="task-title">${task.title}</h3>
+      </div>
+    
+  `;
+  // <span class="priority-dot priority-${task.priority || "low"}"></span>-->
+  taskCard.addEventListener("click", () => openModal(task));
+  return taskCard;
+}
