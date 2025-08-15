@@ -33,3 +33,179 @@
   --border-color: #515261;
   --surface-color: #2b2c37;
 }
+
+/* ================
+ Body Elements
+================ */
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color-primary);
+}
+/* ================
+   Sidebar
+================ */
+
+/* Sidebar container: fixed vertical nav bar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--surface-color);
+  border-right: 2px solid var(--border-color);
+  width: var(--sidebar-width);
+  position: fixed;
+  height: 100%;
+  z-index: 20;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0); /* visible by default */
+}
+
+/* Hidden sidebar: slides off screen to the left */
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar-content {
+  flex-grow: 1; /* takes up available vertical space */
+}
+
+.sidebar-header {
+  padding: 32px 24px;
+  height: 97px;
+  display: flex;
+  align-items: center; /* vertically center the logo */
+}
+
+.logo.main-logo {
+  width: 152px;
+  height: auto;
+}
+
+/* Navigation section for board links */
+.boards-nav {
+  padding-right: 24px;
+}
+
+/* Heading above board links */
+.boards-nav-headline {
+  padding: 0 0 19px 24px;
+  font-size: 0.75rem;
+  letter-spacing: 2.4px;
+  color: var(--text-color-secondary);
+}
+
+/* Individual board link */
+.board-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--text-color-secondary);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  outline: none;
+  padding: 15px 24px;
+  border-radius: 0 100px 100px 0; /* rounded right side */
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover state for inactive board links */
+.board-link:hover:not(.active) {
+  background-color: var(--button-primary-bg-hover);
+  color: white;
+}
+
+/* Active board link */
+.board-link.active {
+  background-color: var(--button-primary-bg);
+  color: white;
+}
+
+/* Sidebar bottom section: theme toggle + hide button */
+.sidebar-footer {
+  padding: 16px 24px 48px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Dark/light mode toggle container */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  border-radius: 6px;
+  padding: 14px;
+  gap: 24px;
+}
+
+/* Toggle switch container */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider styling */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--button-primary-bg);
+  transition: 0.4s;
+  border-radius: 12px;
+}
+
+/* Slider knob */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* When toggled: move knob to the right */
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Button to hide sidebar */
+.hide-sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text-color-primary);
+  background-color: var(--background-color);
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+  padding: 15px 24px;
+  transition: color 0.2s;
+}
+
+/* Hover effect for hide button */
+.hide-sidebar-btn:hover {
+  color: var(--button-primary-bg);
+}
