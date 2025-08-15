@@ -75,3 +75,55 @@ function toggleSidebar() {
 function toggleMobileMenu() {
   mobileMenuModal.classList.toggle("hidden");
 }
+
+/**
+ * Registers all application-wide event listeners:
+ * - Sidebar show/hide buttons
+ * - Theme toggles (desktop & mobile)
+ * - Mobile menu open/close behavior
+ * - Task creation buttons
+ * - Closing the mobile menu when clicking outside of it
+ */
+function setupGlobalEventListeners() {
+  // Sidebar controls
+  document
+    .getElementById("hide-sidebar-btn")
+    .addEventListener("click", toggleSidebar);
+  showSidebarBtn.addEventListener("click", toggleSidebar);
+
+  // Theme controls
+  themeToggle.addEventListener("change", () =>
+    applyTheme(themeToggle.checked ? "dark" : "light")
+  );
+  mobileThemeToggle.addEventListener("change", () =>
+    applyTheme(mobileThemeToggle.checked ? "dark" : "light")
+  );
+
+  // Mobile menu controls
+  mobileMenuTrigger.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent immediate close from document listener
+    toggleMobileMenu();
+  });
+  document
+    .getElementById("close-mobile-menu-btn")
+    .addEventListener("click", toggleMobileMenu);
+
+  // Task creation buttons
+  document
+    .getElementById("add-new-task-btn")
+    .addEventListener("click", () => openModal());
+  document
+    .getElementById("add-new-task-from-empty-btn")
+    .addEventListener("click", () => openModal());
+
+  // Close mobile menu when clicking outside
+  document.addEventListener("click", (event) => {
+    if (
+      !mobileMenuModal.classList.contains("hidden") &&
+      !mobileMenuModal.contains(event.target) &&
+      !mobileMenuTrigger.contains(event.target)
+    ) {
+      toggleMobileMenu();
+    }
+  });
+}
