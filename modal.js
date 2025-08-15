@@ -113,3 +113,48 @@ export function openModal(task = null) {
 export function closeModal() {
   modalBackdrop.classList.add("hidden");
 }
+
+export function setupModalEventListeners() {
+  taskForm.addEventListener("submit", handleFormSubmit);
+
+  // Delete button (in main modal)
+  deleteButton.addEventListener("click", handleDeleteClick);
+
+  // Live validation feedback
+  titleInput.addEventListener("input", () => {
+    if (titleInput.value.trim()) {
+      toggleTitleValidation(false);
+    }
+  });
+
+  // Close main modal
+  document
+    .getElementById("close-modal-btn")
+    .addEventListener("click", closeModal);
+  modalBackdrop.addEventListener("click", (event) => {
+    if (event.target === modalBackdrop) {
+      closeModal();
+    }
+  });
+
+  // Confirm deletion
+  confirmDeleteBtn.addEventListener("click", () => {
+    if (currentTaskId) {
+      deleteTask(currentTaskId);
+      deleteModalBackdrop.classList.add("hidden");
+      closeModal();
+    }
+  });
+
+  // Cancel deletion
+  cancelDeleteBtn.addEventListener("click", () => {
+    deleteModalBackdrop.classList.add("hidden");
+  });
+
+  // Close delete modal by clicking backdrop
+  deleteModalBackdrop.addEventListener("click", (event) => {
+    if (event.target === deleteModalBackdrop) {
+      deleteModalBackdrop.classList.add("hidden");
+    }
+  });
+}
