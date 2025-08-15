@@ -12,7 +12,7 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 > 🚀 **Deployed website (Netlify)** :https://kanbanboardcharme.netlify.app/
 >
-> 📽️ **Web Presentation (Loom)** :
+> 📽️ **Web Presentation (Loom)** : https://www.loom.com/share/32c33e85dddc458080f6bb19153924f1?sid=e47b9b80-d5b9-4189-924d-3f7af6765c0d
 
 ---
 

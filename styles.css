@@ -712,6 +712,7 @@ button.add-task-btn:hover {
 
 .show-sidebar-btn:hover {
   background-color: var(--button-primary-bg-hover);
+  color: white;
 }
 
 .hidden {
