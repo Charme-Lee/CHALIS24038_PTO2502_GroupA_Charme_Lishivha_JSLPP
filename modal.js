@@ -34,7 +34,6 @@ function handleFormSubmit(event) {
     title,
     description: document.getElementById("modal-task-description").value.trim(),
     status: document.getElementById("modal-task-status").value,
-    // priority: document.getElementById("modal-task-priority").value,
   };
 
   if (currentTaskId) {
@@ -76,7 +75,6 @@ function populateModal(task) {
   const modalTitle = document.getElementById("modal-title");
   const descriptionInput = document.getElementById("modal-task-description");
   const statusInput = document.getElementById("modal-task-status");
-  // const priorityInput = document.getElementById("modal-task-priority");
   const saveButton = document.getElementById("save-task-btn");
 
   if (task) {
@@ -84,9 +82,6 @@ function populateModal(task) {
     titleInput.value = task.title;
     descriptionInput.value = task.description;
     statusInput.value = task.status;
-    // priorityInput.value = task.priority
-    // ? task.priority.toLowerCase()
-    // : "medium";
     saveButton.textContent = "Save Changes";
     deleteButton.classList.remove("hidden");
   } else {
@@ -94,7 +89,6 @@ function populateModal(task) {
     saveButton.textContent = "Create Task";
     deleteButton.classList.add("hidden");
     statusInput.value = "todo";
-    // priorityInput.value = "medium";
   }
 }
 
