@@ -96,3 +96,62 @@ export function renderTasks() {
 
   updateTaskCountDisplays();
 }
+
+/**
+ * Adds a new task to the state, saves it, and re-renders.
+ * @param {object} taskData - The data for the new task (title, description, status, priority).
+ */
+export function addNewTask(taskData) {
+  const newId = `task-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+  const newTask = { ...taskData, id: newId };
+  state.push(newTask);
+  saveTasksToStorage(state);
+  renderTasks();
+}
+
+/**
+ * Updates an existing task and re-renders.
+ * @param {string} id - Task ID to update.
+ * @param {object} updates - Partial task data to merge into the existing task.
+ */
+export function updateTask(id, updates) {
+  const taskIndex = state.findIndex((task) => task.id === id);
+  if (taskIndex > -1) {
+    state[taskIndex] = { ...state[taskIndex], ...updates };
+    saveTasksToStorage(state);
+    renderTasks();
+  }
+}
+
+/**
+ * Removes a task by ID from the state and re-renders.
+ * @param {string} id - Task ID to delete.
+ */
+export function deleteTask(id) {
+  state = state.filter((task) => task.id !== id);
+  saveTasksToStorage(state);
+  renderTasks();
+}
+/**
+ * Loads tasks from local storage or fetches them from the API if none exist.
+ * Sets up the board accordingly.
+ */
+export async function initializeTasks() {
+  // setBoardView("loading");
+  let tasks = loadTasksFromStorage();
+
+  if (tasks.length === 0) {
+    tasks = await fetchTasksFromAPI();
+    console.log("API Response:", tasks);
+  }
+
+  if (tasks.length === 0) {
+    // setBoardView("empty");
+  } else {
+    state = tasks.map((task) => ({
+      ...task,
+    }));
+    saveTasksToStorage(state);
+    renderTasks();
+  }
+}
