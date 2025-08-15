@@ -88,3 +88,33 @@ https://github.com/Charme-Lee/CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSLPP.g
 cd
 CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSLPP
 ```
+
+## 🚀 Usage Instructions
+
+### ⚡ At Startup
+
+- Open the Kanban app in your browser (e.g On Netlify).
+
+#### ➕ **Add A New Task**
+
+1. Click the **“+ Add New Task”** button in the top-right corner of the header.
+2. Fill in the task **title** and **description** in the modal that appears.
+3. Choose a **status** from the dropdown (🔽 _todo_, _doing_, _done_).
+4. Click **“Create Task”** to add it to the appropriate column on the Kanban board.
+
+#### ✏️ **Edit An Existing Task**
+
+1. Click on any task card on the board.
+2. The modal opens pre-filled with the task's details.
+3. Update the **title**, **description**, or **status** as needed.
+4. Click **“Save Changes”** to apply updates (task will move columns if status changes).
+
+#### 🗑️ **Delete A Task**
+
+1. Open a task by clicking its card.
+2. In the modal, click the **“Delete Task”** button.
+3. The task is instantly removed from the board.
+
+#### ❌ **Close a Modal**
+
+- To exit without saving, click the **‘X’ icon** in the top-right corner of any open modal.
