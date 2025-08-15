@@ -27,3 +27,46 @@
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white) - Project designed UI/UX layouts, wireframes, and prototypes for a consistent visual style.
 
 ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?logo=netlify&logoColor=white) - Used for fast, reliable web deployment and continuous integration of the project.
+
+## ✨ Key Features & Updates
+
+### Core features
+
+- ✅ Responsive layout with a three-column Kanban board
+- ✅ Sidebar with custom branding and intuitive navigation
+- ✅ Case-insensitive status input (e.g., `todo`,`Doing`, `DONE`)
+- ✅ No Hard-Coded Tasks: All tasks are dynamically generated from JavaScript data, ensuring no hard-coded task content remains in the HTML.
+- ✅ Semantic HTML and well-commented JavaScript for easy maintenance
+- ✅Favicon Assets – SVG Icons
+
+### New Features:
+
+- 🗑️ Delete Task Option: The edit modal includes a "Delete Task" button to remove tasks from the board.
+
+- 🌓 Web theme: Dark & Light mode integrated into both desktop and mobile views.
+
+- 🔘 Toggles: Desktop and mobile toggles for the theme and a desktop togle for the side bar to be hidden.
+
+- ➕ Add A New Task: Clicking the "add task" button opens a modal with a form validation attribute for the required title.
+
+- 🆔 Unique Task IDs: Each new task is assigned a unique incremental ID, continuing from the last task in the array.
+
+- 📝Editable Fields: Both modals offer input fields for updating the task title and description.
+
+- ❌ Close Button: A clear 'X' button allows users to exit the modal without saving changes.
+
+- 🔽 Status Dropdown: A dropdown lets users select and change the task status between "To Do", "Doing", and "Done".
+
+- 📋 Backdrop Overlay: A semi-transparent overlay is included for visual focus and improved user experience.
+
+- 💾 Save Changes: A "Save Changes" button instantly updates the task’s details and status on the board.
+
+- ⚡ Task Persistence: Tasks are saved and loaded from localStorage, ensuring persistence across browser sessions.
+
+## ⚙️ Code Quality & Maintainability
+
+Consistent Naming Conventions: Descriptive and meaningful names are used throughout for variables, functions, and DOM elements, improving overall readability.
+
+Comprehensive JSDoc Comments: All key functions are documented using JSDoc, providing clear descriptions, parameters, and return types for better developer understanding and onboarding.
+
+Modular JavaScript Architecture: Logic is organized into well-defined, single-purpose functions like renderTasks, openTaskModal, addNewTask, updateTaskState, and deleteTask, promoting clarity and reusability.
