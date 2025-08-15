@@ -64,3 +64,36 @@ function toggleTitleValidation(show) {
 }
 
 /**
+ * Prepares and fills the modal with either existing task data (edit mode) or default values (create mode).
+ * Also adjusts modal headings, button labels, and visibility of delete controls.
+ * @param {object|null} task - Task object to populate fields with, or null for a new task.
+ */
+function populateModal(task) {
+  currentTaskId = task ? task.id : null;
+  taskForm.reset();
+  toggleTitleValidation(false);
+
+  const modalTitle = document.getElementById("modal-title");
+  const descriptionInput = document.getElementById("modal-task-description");
+  const statusInput = document.getElementById("modal-task-status");
+  // const priorityInput = document.getElementById("modal-task-priority");
+  const saveButton = document.getElementById("save-task-btn");
+
+  if (task) {
+    modalTitle.textContent = "Edit Task";
+    titleInput.value = task.title;
+    descriptionInput.value = task.description;
+    statusInput.value = task.status;
+    // priorityInput.value = task.priority
+    // ? task.priority.toLowerCase()
+    // : "medium";
+    saveButton.textContent = "Save Changes";
+    deleteButton.classList.remove("hidden");
+  } else {
+    modalTitle.textContent = "Add New Task";
+    saveButton.textContent = "Create Task";
+    deleteButton.classList.add("hidden");
+    statusInput.value = "todo";
+    // priorityInput.value = "medium";
+  }
+}
