@@ -59,3 +59,19 @@ function applyTheme(theme) {
       : "./assets/logo-light.svg";
   }
 }
+
+/**
+ * Toggles the sidebar’s visibility in desktop view.
+ * Also adjusts the main content layout accordingly.
+ */
+function toggleSidebar() {
+  sidebar.classList.toggle("hidden");
+  mainContent.classList.toggle("sidebar-hidden");
+}
+
+/**
+ * Toggles the mobile menu visibility for smaller screens.
+ */
+function toggleMobileMenu() {
+  mobileMenuModal.classList.toggle("hidden");
+}
