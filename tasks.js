@@ -68,7 +68,31 @@ function createTaskElement(task) {
       </div>
     
   `;
-  // <span class="priority-dot priority-${task.priority || "low"}"></span>-->
   taskCard.addEventListener("click", () => openModal(task));
   return taskCard;
+}
+
+/**
+ * Renders all tasks in the state to their corresponding columns.
+ */
+export function renderTasks() {
+  const tasksByStatus = { todo: [], doing: [], done: [] };
+  state.forEach((task) => {
+    if (tasksByStatus[task.status]) {
+      tasksByStatus[task.status].push(task);
+    }
+  });
+
+  columnDivs.forEach((column) => {
+    const status = column.dataset.status;
+    const container = column.querySelector(".tasks-container");
+    if (container) {
+      container.innerHTML = "";
+      tasksByStatus[status].forEach((task) =>
+        container.appendChild(createTaskElement(task))
+      );
+    }
+  });
+
+  updateTaskCountDisplays();
 }
