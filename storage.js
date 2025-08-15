@@ -82,3 +82,16 @@ export function loadTasksFromStorage() {
     return [];
   }
 }
+
+/**
+ * Saves the given list of tasks to the browser's local storage.
+ * Overwrites any previously stored tasks.
+ * @param {Array<object>} tasks - The tasks to store.
+ */
+export function saveTasksToStorage(tasks) {
+  try {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(tasks));
+  } catch (error) {
+    console.error("Error saving tasks to local storage:", error);
+  }
+}
