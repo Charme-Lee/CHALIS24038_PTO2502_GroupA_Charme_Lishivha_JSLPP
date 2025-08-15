@@ -99,11 +99,6 @@ function setupGlobalEventListeners() {
     applyTheme(mobileThemeToggle.checked ? "dark" : "light")
   );
 
-  // Mobile menu controls
-  mobileMenuTrigger.addEventListener("click", (event) => {
-    event.stopPropagation(); // Prevent immediate close from document listener
-    toggleMobileMenu();
-  });
   document
     .getElementById("close-mobile-menu-btn")
     .addEventListener("click", toggleMobileMenu);
@@ -115,6 +110,12 @@ function setupGlobalEventListeners() {
   document
     .getElementById("add-new-task-from-empty-btn")
     .addEventListener("click", () => openModal());
+
+  // Mobile menu controls
+  mobileMenuTrigger.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevent immediate close from document listener
+    toggleMobileMenu();
+  });
 
   // Close mobile menu when clicking outside
   document.addEventListener("click", (event) => {
@@ -137,9 +138,9 @@ function setupGlobalEventListeners() {
  */
 async function init() {
   setupGlobalEventListeners();
+  await initializeTasks();
   setupModalEventListeners();
   loadInitialTheme();
-  await initializeTasks();
 }
 
 // Launch the application once the DOM is fully loaded

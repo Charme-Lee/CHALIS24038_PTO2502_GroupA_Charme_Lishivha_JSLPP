@@ -10,7 +10,7 @@ This project involves **deploying a Kanban app to Netlify**, ensuring the app's 
 
 ## 📡 Deployed Web Application
 
-> 🚀 **Deployed website (Netlify)** :(https://kanbanboardcharme.netlify.app/)
+> 🚀 **Deployed website (Netlify)** :https://kanbanboardcharme.netlify.app/
 >
 > 📽️ **Web Presentation (Loom)** :
 

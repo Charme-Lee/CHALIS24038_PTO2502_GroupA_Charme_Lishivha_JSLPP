@@ -137,16 +137,11 @@ export function deleteTask(id) {
  * Sets up the board accordingly.
  */
 export async function initializeTasks() {
-  // setBoardView("loading");
   let tasks = loadTasksFromStorage();
 
   if (tasks.length === 0) {
     tasks = await fetchTasksFromAPI();
     console.log("API Response:", tasks);
-  }
-
-  if (tasks.length === 0) {
-    // setBoardView("empty");
   } else {
     state = tasks.map((task) => ({
       ...task,
