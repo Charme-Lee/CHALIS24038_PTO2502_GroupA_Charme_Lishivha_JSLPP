@@ -210,6 +210,10 @@ input:checked + .slider:before {
 .hide-sidebar-btn:hover {
   color: var(--button-primary-bg);
 }
+
+[data-theme="dark"] .hide-sidebar-btn:hover {
+  color: #2d242c;
+}
 /* ================
    Main Layout & Header
 ================ */
@@ -712,7 +716,7 @@ button.add-task-btn:hover {
 
 .show-sidebar-btn:hover {
   background-color: var(--button-primary-bg-hover);
-  color: white;
+  /* color: white; */
 }
 
 .hidden {
