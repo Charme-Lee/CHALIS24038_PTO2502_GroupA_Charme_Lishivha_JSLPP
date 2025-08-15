@@ -97,3 +97,19 @@ function populateModal(task) {
     // priorityInput.value = "medium";
   }
 }
+
+/**
+ * Opens the main task modal for either creating a new task or editing an existing one.
+ * @param {object|null} task - The task to edit, or null to start with a blank form.
+ */
+export function openModal(task = null) {
+  populateModal(task);
+  modalBackdrop.classList.remove("hidden");
+}
+
+/**
+ * Closes the main task modal without saving changes.
+ */
+export function closeModal() {
+  modalBackdrop.classList.add("hidden");
+}
