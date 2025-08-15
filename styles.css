@@ -209,3 +209,71 @@ input:checked + .slider:before {
 .hide-sidebar-btn:hover {
   color: var(--button-primary-bg);
 }
+/* ================
+   Main Layout & Header
+================ */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--sidebar-width);
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-content.sidebar-hidden {
+  margin-left: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--surface-color);
+  border-bottom: 2px solid var(--border-color);
+  height: 97px;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.mobile-logo-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.board-title {
+  font-size: 1.5rem;
+  color: var(--text-color-primary);
+}
+
+button.add-task-btn {
+  background-color: var(--button-primary-bg);
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 15px 24px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.plus-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+button.add-task-btn:hover {
+  background-color: var(--button-primary-bg-hover);
+}
