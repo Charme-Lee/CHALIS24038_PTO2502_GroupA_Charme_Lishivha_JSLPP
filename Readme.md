@@ -118,3 +118,25 @@ CHALIS24038_PTO2502_GroupA_Charme_Lishivha_JSLPP
 #### ❌ **Close a Modal**
 
 - To exit without saving, click the **‘X’ icon** in the top-right corner of any open modal.
+
+## ✅ Usage Example
+
+💡*For use on your local machine IDE or Netlify*
+
+- Open index.html in a browser | Open the Netlify link
+
+- The Kanban board displays tasks in "TODO," "DOING," and "DONE" columns.
+  ![alt text](image.png)
+
+- Click "+ Add New Task" in the header, fill in details, and click "Create Task" to add it to the board.
+  ![alt text](image-4.png)
+
+- Click any task card to open the "Edit Task" modal, edit details, and click "Save Changes" to update it.
+
+- In the "Edit Task" modal, click "Delete Task" to remove a task.
+  ![alt text](image-3.png)
+- Resize the browser window to see the layout responsively adjust.
+
+- Toggle the theme or hide the sidebar on the the desktop view
+
+- The same features are available on mobile via the developer tools on the browser.
