@@ -54,3 +54,13 @@ function handleDeleteClick() {
   if (!currentTaskId) return;
   deleteModalBackdrop.classList.remove("hidden");
 }
+/**
+ * Toggles visual validation feedback for the title field.
+ * Adds/removes a CSS class to indicate an empty required field.
+ * @param {boolean} show - Whether to display the validation message.
+ */
+function toggleTitleValidation(show) {
+  titleFieldGroup.classList.toggle("show-validation", show);
+}
+
+/**
