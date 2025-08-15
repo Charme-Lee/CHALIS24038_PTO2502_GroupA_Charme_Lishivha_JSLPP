@@ -15,3 +15,42 @@ const taskForm = document.getElementById("task-form");
 const titleInput = document.getElementById("modal-task-title");
 const titleFieldGroup = titleInput.closest(".form-group");
 const deleteButton = document.getElementById("delete-task-btn");
+
+/**
+ * Processes the form submission event for creating or editing a task.
+ * Validates input, determines if this is a create or update action, then persists the data.
+ * @param {Event} event - Form submission event object.
+ */
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const title = titleInput.value.trim();
+
+  if (!title) {
+    toggleTitleValidation(true);
+    return;
+  }
+
+  const taskData = {
+    title,
+    description: document.getElementById("modal-task-description").value.trim(),
+    status: document.getElementById("modal-task-status").value,
+    // priority: document.getElementById("modal-task-priority").value,
+  };
+
+  if (currentTaskId) {
+    updateTask(currentTaskId, taskData);
+  } else {
+    addNewTask(taskData);
+  }
+
+  closeModal();
+}
+
+/**
+ * Displays the delete confirmation modal when the "Delete Task" button is clicked.
+ * Only triggers if a task is currently selected.
+ */
+function handleDeleteClick() {
+  if (!currentTaskId) return;
+  deleteModalBackdrop.classList.remove("hidden");
+}
