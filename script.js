@@ -37,3 +37,25 @@ function loadInitialTheme() {
   ).matches;
   applyTheme(savedTheme || (systemPreference ? "dark" : "light"));
 }
+
+/**
+ * Applies a visual theme (light or dark) across the application.
+ * Updates the DOM, persists the choice to localStorage, and syncs the theme state between desktop and mobile toggles.
+ * Also updates the logo to match the active theme.
+ * @param {'Dark' | 'Light'} theme - The theme to apply.
+ */
+function applyTheme(theme) {
+  document.body.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  const isDark = theme === "dark";
+  themeToggle.checked = isDark;
+  mobileThemeToggle.checked = isDark;
+
+  //-----------------------------------------------------------------
+  // Update logo based on theme
+  if (mainLogo) {
+    mainLogo.src = isDark
+      ? "./assets/logo-dark.svg"
+      : "./assets/logo-light.svg";
+  }
+}
