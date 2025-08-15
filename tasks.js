@@ -37,3 +37,18 @@ function updateTaskCountDisplays() {
     }
   }
 }
+
+/**
+ * Fetches tasks from the API.
+ * @returns {Promise<Array>} Resolves with an array of task objects, or an empty array on failure.
+ */
+async function fetchTasksFromAPI() {
+  try {
+    const response = await fetch(API_URL);
+    if (!response.ok) throw new Error(`API Error: ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.error("Failed to fetch tasks from API:", error);
+    return [];
+  }
+}
